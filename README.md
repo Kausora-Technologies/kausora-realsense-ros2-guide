@@ -1,6 +1,6 @@
 # Kausora RealSense ROS2 Guide
 
-[![CI](https://github.com/kausora/kausora-realsense-ros2-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/kausora/kausora-realsense-ros2-guide/actions/workflows/ci.yml)
+[![CI](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/actions/workflows/ci.yml)
 
 **Intel RealSense + ROS2 Jazzy — Complete Integration Package**
 
@@ -31,7 +31,7 @@ No host installation required beyond Docker.
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/kausora/kausora-realsense-ros2-guide.git
+git clone https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide.git
 cd kausora-realsense-ros2-guide
 
 # 2. Configure environment
@@ -123,12 +123,15 @@ ros2 launch kausora_realsense_ros2 multi_camera.launch.py \
 /camera/<name>/depth/color/points       sensor_msgs/PointCloud2  (if enabled)
 ```
 
-### IMU (D435i)
+### IMU (D435i / D455)
 
 ```
 /camera/d435i/imu                       sensor_msgs/Imu  (fused, if unite_imu_method set)
 /camera/d435i/gyro/sample               sensor_msgs/Imu
 /camera/d435i/accel/sample              sensor_msgs/Imu
+
+/camera/d455/gyro/sample                sensor_msgs/Imu  (if enable_gyro: true)
+/camera/d455/accel/sample               sensor_msgs/Imu  (if enable_accel: true)
 ```
 
 ### Tracking (T265)
@@ -167,7 +170,8 @@ kausora-realsense-ros2-guide/
 ├── rviz/                       # Pre-configured RViz2 display layouts
 ├── docker/                     # Dockerfile, Compose, .env template
 ├── scripts/                    # Install and verification scripts
-└── docs/                       # Step-by-step documentation
+├── docs/                       # Step-by-step documentation
+└── .github/workflows/          # CI workflow (GitHub Actions)
 ```
 
 ---
@@ -185,7 +189,7 @@ kausora-realsense-ros2-guide/
 ## Support
 
 - **Documentation:** See the `docs/` directory
-- **Issues:** [GitHub Issues](https://github.com/kausora/kausora-realsense-ros2-guide/issues)
+- **Issues:** [GitHub Issues](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/issues)
 - **Email:** support@kausora.com
 - **Website:** [kausora.com](https://kausora.com)
 

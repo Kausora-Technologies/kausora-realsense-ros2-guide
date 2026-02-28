@@ -48,6 +48,7 @@ services:
     network_mode: host
     environment:
       - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
+      - CAMERA_MODEL=${CAMERA_MODEL:-d435}
       - CAMERA_SERIAL=${CAMERA_SERIAL:-}
       - DISPLAY=${DISPLAY:-:0}
       - QT_X11_NO_MITSHM=1

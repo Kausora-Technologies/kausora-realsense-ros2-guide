@@ -1,0 +1,32 @@
+# Kausora Technologies — Docker build context exclusions
+# Keeps the build context small and prevents unnecessary cache invalidation
+
+# Version control
+.git
+.gitignore
+
+# Documentation (not needed in image)
+docs/
+
+# Docker files (not needed inside the image itself)
+docker/
+
+# ROS2 build artifacts (built fresh inside container)
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

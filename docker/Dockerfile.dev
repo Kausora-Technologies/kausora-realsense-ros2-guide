@@ -1,0 +1,45 @@
+# Kausora Technologies — RealSense ROS2 Development Image
+# Extends production image with development tools and SDK headers
+
+ARG BASE_IMAGE=kausora/realsense-ros2:latest
+FROM ${BASE_IMAGE}
+
+LABEL description="Intel RealSense + ROS2 Jazzy development image"
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install librealsense development packages
+# Note: librealsense2-dkms (kernel module) is omitted — it cannot be used inside containers
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    librealsense2-dev \
+    librealsense2-dbg \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install development tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gdb \
+    valgrind \
+    python3-pip \
+    python3-colcon-common-extensions \
+    ros-jazzy-rqt \
+    ros-jazzy-rqt-common-plugins \
+    ros-jazzy-rviz2 \
+    ros-jazzy-imu-tools \
+    ros-jazzy-image-view \
+    ros-jazzy-tf2-tools \
+    htop \
+    vim \
+    tmux \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dev dependencies
+RUN pip3 install --no-cache-dir \
+    pyrealsense2 \
+    numpy \
+    opencv-python-headless
+
+# Enable X11 forwarding for visualization tools
+ENV DISPLAY=:0
+ENV QT_X11_NO_MITSHM=1
+
+CMD ["/bin/bash"]

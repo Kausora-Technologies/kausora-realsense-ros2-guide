@@ -7,7 +7,7 @@ Run RealSense cameras in Docker containers.
 ## Prerequisites
 
 - Docker Engine 24+
-- Docker Compose v2
+- Docker Compose v2 (`docker compose`) or v1 (`docker-compose`)
 
 ```bash
 # Install Docker
@@ -15,9 +15,12 @@ curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker $USER
 # Log out and back in
 
-# Verify
+# Verify (v2 — preferred)
 docker --version
 docker compose version
+
+# If only v1 is available, substitute docker-compose for docker compose throughout
+docker-compose version
 ```
 
 ---
@@ -53,12 +56,15 @@ All `docker compose` commands must be run from the `docker/` directory (where `d
 ```bash
 cd docker
 
-# Build production image
+# Build production image first
 docker compose build realsense
 
-# Build development image
+# Build development image (requires production image built above)
 docker compose build dev
 ```
+
+> **Note:** The dev image extends the production image (`kausora/realsense-ros2:latest`).
+> Always build `realsense` before `dev`.
 
 ---
 

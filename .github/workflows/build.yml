@@ -1,4 +1,4 @@
-name: CI
+name: Build
 
 on:
   push:
@@ -56,38 +56,3 @@ jobs:
             ros2 launch kausora_realsense_ros2 ${cam}.launch.py --show-args
             echo "[OK] ${cam}.launch.py --show-args"
           done
-
-  lint:
-    name: Python lint
-    runs-on: ubuntu-24.04
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: flake8
-        run: |
-          pip3 install --break-system-packages flake8
-          flake8 scripts/ --max-line-length=120
-
-  docker:
-    name: Docker image build
-    runs-on: ubuntu-24.04
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Build production image
-        working-directory: docker
-        run: docker compose build realsense
-
-      - name: Build dev image
-        working-directory: docker
-        run: docker compose build dev
-
-      - name: Smoke test — package and launch files present
-        run: |
-          docker run --rm kausora/realsense-ros2:latest bash -c "
-            source /opt/ros/jazzy/setup.bash &&
-            source /opt/kausora_ws/install/setup.bash &&
-            ros2 pkg list | grep -E 'kausora_realsense_ros2|realsense2_camera' &&
-            ros2 launch kausora_realsense_ros2 d435.launch.py --show-args
-          "

@@ -1,0 +1,19 @@
+name: Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  lint:
+    name: Python lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: flake8
+        run: |
+          pip3 install --break-system-packages flake8
+          flake8 scripts/ --max-line-length=120

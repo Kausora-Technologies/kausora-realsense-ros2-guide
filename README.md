@@ -1,6 +1,8 @@
 # Kausora RealSense ROS2 Guide
 
-[![CI](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/actions/workflows/ci.yml)
+[![Build](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/actions/workflows/build.yml)
+[![Lint](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/actions/workflows/lint.yml/badge.svg?branch=main)](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/actions/workflows/lint.yml)
+[![Docker](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/actions/workflows/docker.yml/badge.svg?branch=main)](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/actions/workflows/docker.yml)
 
 **Intel RealSense + ROS2 Jazzy — Complete Integration Package**
 

@@ -62,7 +62,7 @@ ros2 run realsense2_camera realsense2_camera_node --ros-args \
 | Parameter | Default | Notes |
 |-----------|---------|-------|
 | `color_width` | 848 | Up to 1920 |
-| `color_height` | 720 | Up to 1080 |
+| `color_height` | 480 | Up to 1080 |
 | `depth_width` | 848 | Up to 1280 |
 | `enable_gyro` | true | 200 Hz |
 | `enable_accel` | true | 63 Hz |

@@ -1,5 +1,7 @@
 # Kausora RealSense ROS2 Guide
 
+[![CI](https://github.com/kausora/kausora-realsense-ros2-guide/actions/workflows/ci.yml/badge.svg)](https://github.com/kausora/kausora-realsense-ros2-guide/actions/workflows/ci.yml)
+
 **Intel RealSense + ROS2 Jazzy — Complete Integration Package**
 
 Provided by [Kausora Technologies](https://kausora.com)

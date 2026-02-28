@@ -1,0 +1,94 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: colcon build & launch validation
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up ROS2 Jazzy
+        uses: ros-tooling/setup-ros@v0.7
+        with:
+          required-ros-distributions: jazzy
+
+      - name: Install realsense2 and visualization packages
+        run: |
+          sudo apt-get install -y --no-install-recommends \
+            ros-jazzy-realsense2-camera \
+            ros-jazzy-realsense2-description \
+            ros-jazzy-rviz2 \
+            ros-jazzy-imu-tools
+
+      - name: Build package
+        shell: bash
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          mkdir -p ~/ws/src
+          ln -s "$GITHUB_WORKSPACE" ~/ws/src/kausora_realsense_ros2
+          cd ~/ws
+          colcon build --packages-select kausora_realsense_ros2
+
+      - name: Verify installed files
+        shell: bash
+        run: |
+          share=~/ws/install/kausora_realsense_ros2/share/kausora_realsense_ros2
+          for cam in d415 d435 d435i d455 l515 t265 multi_camera; do
+            test -f "$share/launch/${cam}.launch.py" && echo "[OK] launch/${cam}.launch.py"
+          done
+          for cam in d415 d435 d435i d455 l515 t265; do
+            test -f "$share/rviz/${cam}.rviz"           && echo "[OK] rviz/${cam}.rviz"
+            test -f "$share/config/${cam}_config.yaml"  && echo "[OK] config/${cam}_config.yaml"
+          done
+
+      - name: Validate launch arguments
+        shell: bash
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          source ~/ws/install/setup.bash
+          for cam in d415 d435 d435i d455 l515 t265; do
+            ros2 launch kausora_realsense_ros2 ${cam}.launch.py --show-args
+            echo "[OK] ${cam}.launch.py --show-args"
+          done
+
+  lint:
+    name: Python lint
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: flake8
+        run: |
+          pip3 install --break-system-packages flake8
+          flake8 scripts/ --max-line-length=120
+
+  docker:
+    name: Docker image build
+    runs-on: ubuntu-24.04
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build production image
+        working-directory: docker
+        run: docker compose build realsense
+
+      - name: Build dev image
+        working-directory: docker
+        run: docker compose build dev
+
+      - name: Smoke test — package and launch files present
+        run: |
+          docker run --rm kausora/realsense-ros2:latest bash -c "
+            source /opt/ros/jazzy/setup.bash &&
+            source /opt/kausora_ws/install/setup.bash &&
+            ros2 pkg list | grep -E 'kausora_realsense_ros2|realsense2_camera' &&
+            ros2 launch kausora_realsense_ros2 d435.launch.py --show-args
+          "

@@ -33,10 +33,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Python dev dependencies
-RUN pip3 install --no-cache-dir \
+# --break-system-packages is required on Ubuntu 24.04 (PEP 668 externally-managed-environment)
+# opencv-python-headless is omitted: python3-opencv is already present via ros-jazzy-realsense2-camera
+RUN pip3 install --no-cache-dir --break-system-packages \
     pyrealsense2 \
-    numpy \
-    opencv-python-headless
+    numpy
 
 # Enable X11 forwarding for visualization tools
 ENV DISPLAY=:0

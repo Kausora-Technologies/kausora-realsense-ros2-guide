@@ -20,7 +20,11 @@ def check_librealsense() -> bool:
         try:
             version = ".".join(str(v) for v in rs.core.version)
         except AttributeError:
-            version = rs.__version__ if hasattr(rs, '__version__') else "unknown"
+            try:
+                import importlib.metadata
+                version = importlib.metadata.version("pyrealsense2")
+            except Exception:
+                version = "unknown"
         print(f"  [OK] pyrealsense2 version: {version}")
 
         # Check minimum version
@@ -47,7 +51,7 @@ def check_librealsense() -> bool:
                 capture_output=True, text=True, timeout=5
             )
             if "ii  librealsense2" in result.stdout:
-                version_line = [l for l in result.stdout.splitlines() if "ii  librealsense2 " in l]
+                version_line = [l for l in result.stdout.splitlines() if "ii  librealsense2" in l]
                 if version_line:
                     version = version_line[0].split()[2]
                     print(f"  [OK] librealsense2 system package: {version}")

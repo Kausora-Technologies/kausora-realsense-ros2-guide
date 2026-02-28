@@ -72,7 +72,6 @@ jobs:
     name: Docker image build
     runs-on: ubuntu-24.04
     needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v4
 

@@ -158,8 +158,11 @@ Pre-configured displays per camera:
 
 | Camera | Fixed Frame | Displays |
 |--------|-------------|----------|
-| D415 / D435 / D455 / L515 | `camera_link` | Grid, TF, Color Image, Depth Image, PointCloud2 (disabled) |
-| D435i | `camera_link` | Grid, TF, Color Image, Depth Image, PointCloud2 (disabled), IMU |
+| D415 | `d415_link` | Grid, TF, Color Image, Depth Image, PointCloud2 (disabled) |
+| D435 | `d435_link` | Grid, TF, Color Image, Depth Image, PointCloud2 (disabled) |
+| D435i | `d435i_link` | Grid, TF, Color Image, Depth Image, PointCloud2 (disabled), IMU |
+| D455 | `d455_link` | Grid, TF, Color Image, Depth Image, PointCloud2 (disabled) |
+| L515 | `l515_link` | Grid, TF, Color Image, Depth Image, PointCloud2 (disabled) |
 | T265 | `t265_pose_frame` | Grid, TF, Odometry, Fisheye 1, Fisheye 2 |
 
 The `launch_rviz` argument defaults to `false`, so existing launch commands are

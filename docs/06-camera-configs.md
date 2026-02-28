@@ -14,9 +14,9 @@ directly to override them:
 # Launch with built-in defaults (recommended)
 ros2 launch kausora_realsense_ros2 d435.launch.py
 
-# Override with a custom config file
-ros2 run realsense2_camera realsense2_camera_node \
-    --ros-args --params-file config/d435_config.yaml
+# Override with a custom config file (use the installed path)
+ros2 run realsense2_camera realsense2_camera_node --ros-args \
+    --params-file $(ros2 pkg prefix kausora_realsense_ros2)/share/kausora_realsense_ros2/config/d435_config.yaml
 ```
 
 ---
@@ -62,6 +62,7 @@ ros2 run realsense2_camera realsense2_camera_node \
 | Parameter | Default | Notes |
 |-----------|---------|-------|
 | `color_width` | 848 | Up to 1920 |
+| `color_height` | 720 | Up to 1080 |
 | `depth_width` | 848 | Up to 1280 |
 | `enable_gyro` | true | 200 Hz |
 | `enable_accel` | true | 63 Hz |

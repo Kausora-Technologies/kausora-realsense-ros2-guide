@@ -97,10 +97,21 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 # Reconnect the camera
 ```
 
-### Kernel module conflicts (DKMS)
+### Kernel module conflicts (DKMS — last resort)
+
+> **Warning:** `librealsense2-dkms` patches kernel UVC drivers and requires a
+> reboot. On Ubuntu 24.04 with a standard kernel this is **not needed** and
+> should not be installed as a general troubleshooting step.
+
+Only use this if you are on an older kernel and see specific errors such as
+`uvcvideo: Failed to query ...` in `dmesg`. If in doubt, try the steps above
+first.
+
 ```bash
 sudo apt-get install -y librealsense2-dkms
 sudo dkms autoinstall
+# Reboot required after installation
+sudo reboot
 ```
 
 ---

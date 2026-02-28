@@ -95,6 +95,9 @@ cd ~/kausora_ws
 # (if not already done)
 # git clone <repo-url> src/kausora-realsense-ros2-guide
 
+# Source ROS2 (required before colcon — open a new shell or run this explicitly)
+source /opt/ros/jazzy/setup.bash
+
 # Install dependencies
 rosdep install --from-paths src --ignore-src -r -y
 

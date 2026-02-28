@@ -57,7 +57,11 @@ lsusb | grep -i intel
 # Example output: Bus 002 Device 003: ID 8086:0b3a Intel Corp. Intel(R) RealSense(TM) Depth Camera 435i
 ```
 
-The bus number (`002` = USB 3.x, `001` = USB 2.x) indicates which USB version is in use.
+To confirm the camera is on a SuperSpeed (USB 3.x) connection, check `lsusb -t` and look for `5000M` or `10000M` next to the device, or run:
+
+```bash
+dmesg | grep -i "super speed"
+```
 
 ### udev Rules
 

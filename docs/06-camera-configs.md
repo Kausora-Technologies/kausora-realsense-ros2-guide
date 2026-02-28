@@ -87,7 +87,7 @@ Raw streams: `/camera/d435i/gyro/sample`, `/camera/d435i/accel/sample`
 | `depth_fps` | 30 | Up to 90 |
 | `enable_gyro` | false | Not available |
 
-**Range:** 0.4m – 6m (optimal), up to 20m (reduced accuracy)
+**Range:** 0.6m – 6m (optimal), up to 20m (reduced accuracy)
 
 ---
 
@@ -132,7 +132,7 @@ Raw streams: `/camera/d435i/gyro/sample`, `/camera/d435i/accel/sample`
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
-| `camera_name` | `camera` | Node and TF prefix |
+| `camera_name` | model-specific | Node and TF prefix (e.g. `d435`, `d435i`) |
 | `camera_namespace` | `camera` | ROS namespace |
 | `serial_no` | `""` | Camera serial (empty = first found) |
 | `pointcloud.enable` | `false` | Publish PointCloud2 |

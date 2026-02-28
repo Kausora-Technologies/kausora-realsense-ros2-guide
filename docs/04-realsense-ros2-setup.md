@@ -45,9 +45,16 @@ source install/setup.bash
 
 ## Launch a Camera
 
-Connect your RealSense camera, then launch the appropriate file:
+Connect your RealSense camera, then choose one of the two launch options:
+
+### Option A — Kausora package (recommended)
+
+Pre-configured launch files with sensible defaults per camera model:
 
 ```bash
+# D415
+ros2 launch kausora_realsense_ros2 d415.launch.py
+
 # D435
 ros2 launch kausora_realsense_ros2 d435.launch.py
 
@@ -66,6 +73,28 @@ ros2 launch kausora_realsense_ros2 t265.launch.py
 # Specify serial number (for multi-camera setups)
 ros2 launch kausora_realsense_ros2 d435.launch.py serial_no:=123456789012
 ```
+
+### Option B — Upstream realsense2_camera (generic)
+
+Use the upstream launch file directly if you need parameters not exposed by the
+kausora launch files:
+
+```bash
+ros2 launch realsense2_camera rs_launch.py
+
+# With point cloud enabled
+ros2 launch realsense2_camera rs_launch.py pointcloud.enable:=true
+
+# Custom resolution and frame rate
+ros2 launch realsense2_camera rs_launch.py \
+    depth_module.profile:=1280x720x30 \
+    rgb_camera.profile:=1280x720x30
+```
+
+> **Note:** With Option B the default topic namespace is `/camera/camera/...`
+> (both `camera_name` and `camera_namespace` default to `camera`). With
+> Option A topics follow the pattern `/camera/<model>/...` (e.g.
+> `/camera/d435/color/image_raw`).
 
 ---
 

@@ -4,7 +4,7 @@
 
 FROM ros:jazzy-ros-base
 
-LABEL maintainer="support@kausora.com"
+LABEL maintainer="contact@kausora.com"
 LABEL description="Intel RealSense + ROS2 Jazzy production image"
 LABEL version="1.0.0"
 

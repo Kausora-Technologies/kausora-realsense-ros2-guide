@@ -9,7 +9,7 @@
     D435i, D455, L515, and T265 camera models.
   </description>
 
-  <maintainer email="support@kausora.com">Kausora Technologies</maintainer>
+  <maintainer email="contact@kausora.com">Kausora Technologies</maintainer>
   <license>Apache-2.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

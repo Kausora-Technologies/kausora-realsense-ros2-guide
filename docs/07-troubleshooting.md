@@ -329,5 +329,5 @@ If you can't resolve an issue:
    uname -r
    ```
 
-3. Contact Kausora support: **support@kausora.com**
+3. Contact Kausora support: **contact@kausora.com**
 4. File an issue in the repository with the above information.

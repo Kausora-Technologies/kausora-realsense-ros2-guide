@@ -192,7 +192,7 @@ kausora-realsense-ros2-guide/
 
 - **Documentation:** See the `docs/` directory
 - **Issues:** [GitHub Issues](https://github.com/Kausora-Technologies/kausora-realsense-ros2-guide/issues)
-- **Email:** support@kausora.com
+- **Email:** contact@kausora.com
 - **Website:** [kausora.com](https://kausora.com)
 
 ---

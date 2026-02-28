@@ -24,7 +24,7 @@ Examples of unacceptable behaviour:
 
 ## Enforcement
 
-Instances of abusive, harassing, or otherwise unacceptable behaviour may be reported to the project maintainers at **support@kausora.com**. All complaints will be reviewed and investigated and will result in a response deemed necessary and appropriate to the circumstances.
+Instances of abusive, harassing, or otherwise unacceptable behaviour may be reported to the project maintainers at **contact@kausora.com**. All complaints will be reviewed and investigated and will result in a response deemed necessary and appropriate to the circumstances.
 
 ## Attribution
 

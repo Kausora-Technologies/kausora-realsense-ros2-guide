@@ -1,0 +1,45 @@
+# Kausora Technologies — D435i Camera Configuration
+# Intel RealSense D435i — Depth camera with IMU
+# D435 depth + built-in BMI055 IMU (gyro + accel)
+
+/camera/d435i:
+  ros__parameters:
+    camera_name: "d435i"
+    camera_namespace: "camera"
+    serial_no: ""
+
+    # Color stream
+    enable_color: true
+    color_width: 848
+    color_height: 480
+    color_fps: 30.0
+
+    # Depth stream
+    enable_depth: true
+    depth_width: 848
+    depth_height: 480
+    depth_fps: 30.0
+
+    # Infrared streams
+    enable_infra1: false
+    enable_infra2: false
+    infra_width: 848
+    infra_height: 480
+    infra_fps: 30.0
+
+    # IMU — D435i HAS an IMU (gyro + accel)
+    enable_gyro: true
+    enable_accel: true
+    gyro_fps: 200.0
+    accel_fps: 63.0
+    # Options: "" (none), "copy", "linear_interpolation"
+    unite_imu_method: "linear_interpolation"
+
+    # Depth processing
+    pointcloud.enable: false
+    align_depth.enable: false
+    clip_distance: -2.0
+
+    initial_reset: false
+    publish_tf: true
+    tf_publish_rate: 0.0

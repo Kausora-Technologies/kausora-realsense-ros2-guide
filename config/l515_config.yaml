@@ -1,0 +1,39 @@
+# Kausora Technologies — L515 Camera Configuration
+# Intel RealSense L515 — LiDAR depth camera
+# Uses structured light LiDAR for high-accuracy indoor depth
+# Depth range: 0.25m – 9m indoors
+
+/camera/l515:
+  ros__parameters:
+    camera_name: "l515"
+    camera_namespace: "camera"
+    serial_no: ""
+
+    # Color stream (1920x1080 max @ 30fps)
+    enable_color: true
+    color_width: 1920
+    color_height: 1080
+    color_fps: 30.0
+
+    # Depth stream — LiDAR structured light
+    enable_depth: true
+    depth_width: 1024
+    depth_height: 768
+    depth_fps: 30.0
+
+    # Infrared — not standard on L515
+    enable_infra1: false
+    enable_infra2: false
+
+    # IMU — L515 does NOT have an IMU
+    enable_gyro: false
+    enable_accel: false
+
+    # Depth processing
+    pointcloud.enable: false
+    align_depth.enable: false
+    clip_distance: -2.0
+
+    initial_reset: false
+    publish_tf: true
+    tf_publish_rate: 0.0

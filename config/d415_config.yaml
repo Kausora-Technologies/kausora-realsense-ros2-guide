@@ -1,0 +1,44 @@
+# Kausora Technologies — D415 Camera Configuration
+# Intel RealSense D415 — Wide-angle stereo depth camera
+# FOV: 69° × 42° (depth), 70° × 43° (color)
+
+/camera/d415:
+  ros__parameters:
+    camera_name: "d415"
+    camera_namespace: "camera"
+    serial_no: ""            # Set to camera serial number if using multiple cameras
+
+    # Color stream
+    enable_color: true
+    color_width: 1280
+    color_height: 720
+    color_fps: 30.0
+
+    # Depth stream
+    enable_depth: true
+    depth_width: 1280
+    depth_height: 720
+    depth_fps: 30.0
+
+    # Infrared streams (disable unless needed for raw stereo access)
+    enable_infra1: false
+    enable_infra2: false
+    infra_width: 1280
+    infra_height: 720
+    infra_fps: 30.0
+
+    # IMU — D415 does not have an IMU
+    enable_gyro: false
+    enable_accel: false
+
+    # Depth processing
+    pointcloud.enable: false
+    align_depth.enable: false
+    clip_distance: -2.0     # Clip depth beyond this distance in meters (-1 = disable)
+
+    # Initial reset
+    initial_reset: false
+
+    # TF publishing
+    publish_tf: true
+    tf_publish_rate: 0.0    # 0 = publish static TF only

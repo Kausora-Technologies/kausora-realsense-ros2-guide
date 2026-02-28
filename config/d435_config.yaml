@@ -1,0 +1,41 @@
+# Kausora Technologies — D435 Camera Configuration
+# Intel RealSense D435 — Wide global shutter stereo depth camera
+# FOV: 87° × 58° (depth), 69° × 42° (color)
+
+/camera/d435:
+  ros__parameters:
+    camera_name: "d435"
+    camera_namespace: "camera"
+    serial_no: ""
+
+    # Color stream
+    enable_color: true
+    color_width: 848
+    color_height: 480
+    color_fps: 30.0
+
+    # Depth stream
+    enable_depth: true
+    depth_width: 848
+    depth_height: 480
+    depth_fps: 30.0
+
+    # Infrared streams
+    enable_infra1: false
+    enable_infra2: false
+    infra_width: 848
+    infra_height: 480
+    infra_fps: 30.0
+
+    # IMU — D435 does not have an IMU
+    enable_gyro: false
+    enable_accel: false
+
+    # Depth processing
+    pointcloud.enable: false
+    align_depth.enable: false
+    clip_distance: -2.0
+
+    initial_reset: false
+    publish_tf: true
+    tf_publish_rate: 0.0

@@ -1,0 +1,41 @@
+# Kausora Technologies — D455 Camera Configuration
+# Intel RealSense D455 — Long-range depth camera
+# Range: up to 6m | FOV: 87° × 58° (depth), 90° × 65° (color)
+
+/camera/d455:
+  ros__parameters:
+    camera_name: "d455"
+    camera_namespace: "camera"
+    serial_no: ""
+
+    # Color stream
+    enable_color: true
+    color_width: 1280
+    color_height: 720
+    color_fps: 30.0
+
+    # Depth stream
+    enable_depth: true
+    depth_width: 1280
+    depth_height: 720
+    depth_fps: 30.0
+
+    # Infrared streams
+    enable_infra1: false
+    enable_infra2: false
+    infra_width: 1280
+    infra_height: 720
+    infra_fps: 30.0
+
+    # IMU — D455 does not have an IMU
+    enable_gyro: false
+    enable_accel: false
+
+    # Depth processing
+    pointcloud.enable: false
+    align_depth.enable: false
+    clip_distance: -2.0
+
+    initial_reset: false
+    publish_tf: true
+    tf_publish_rate: 0.0

@@ -1,0 +1,37 @@
+# Kausora Technologies — T265 Camera Configuration
+# Intel RealSense T265 — Visual-Inertial Odometry (VIO) Tracking Camera
+# Produces 6-DoF pose estimates using stereo fisheye + IMU
+# Does NOT produce standard depth or color streams
+
+/camera/t265:
+  ros__parameters:
+    camera_name: "t265"
+    camera_namespace: "camera"
+    serial_no: ""
+
+    # T265 does NOT have standard depth or color streams
+    enable_color: false
+    enable_depth: false
+
+    # Fisheye cameras (stereo tracking)
+    enable_fisheye1: true
+    enable_fisheye2: true
+    fisheye_fps: 30.0
+
+    # Pose stream (6-DoF VIO odometry)
+    enable_pose: true
+    pose_fps: 200.0
+
+    # IMU — T265 has built-in IMU (gyro + accel)
+    enable_gyro: true
+    enable_accel: true
+    gyro_fps: 200.0
+    accel_fps: 62.5
+    unite_imu_method: "linear_interpolation"
+
+    # Map frames
+    publish_tf: true
+    tf_publish_rate: 0.0
+
+    # Odometry publishing
+    odom_frame_id: "odom"

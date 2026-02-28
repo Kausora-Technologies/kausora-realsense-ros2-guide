@@ -15,7 +15,7 @@ This repository provides a production-ready ROS2 Jazzy package with pre-configur
 | **D415** | Yes | Yes | No | No | Wide-angle, indoor 3D reconstruction |
 | **D435** | Yes | Yes | No | No | Global shutter, fast-moving objects |
 | **D435i** | Yes | Yes | Yes | No | D435 + BMI055 IMU for SLAM/VIO |
-| **D455** | Yes | Yes | No | No | Long-range (up to 6m), outdoor use |
+| **D455** | Yes | Yes | Yes | No | Long-range (up to 6m), outdoor use; BMI085 IMU |
 | **L515** | Yes (LiDAR) | Yes | No | No | High-accuracy indoor LiDAR depth |
 | **T265** | No | No | Yes | Yes | 6-DoF VIO tracking, pose estimation |
 

@@ -24,7 +24,7 @@ This guide covers hardware, software, and USB requirements for using Intel RealS
 | D415 | Stereo Active | 3.0 | Yes | Yes | No | No |
 | D435 | Stereo Global | 3.0 | Yes | Yes | No | No |
 | D435i | Stereo + IMU | 3.0 | Yes | Yes | Yes | No |
-| D455 | Long-range Stereo | 3.0 | Yes | Yes | No | No |
+| D455 | Long-range Stereo | 3.0 | Yes | Yes | Yes | No |
 | L515 | LiDAR | 3.2 | Yes | Yes | No | No |
 | T265 | Tracking (VIO) | 2.0+ | No | No | Yes | Yes |
 

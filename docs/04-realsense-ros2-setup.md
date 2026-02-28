@@ -20,7 +20,9 @@ sudo apt-get update
 sudo apt-get install -y \
     ros-jazzy-realsense2-camera \
     ros-jazzy-realsense2-description \
-    ros-jazzy-rviz2
+    ros-jazzy-rviz2 \
+    ros-jazzy-imu-tools \
+    ros-jazzy-image-view
 ```
 
 ---

@@ -39,6 +39,9 @@ def generate_launch_description():
                 # Infrared
                 'enable_infra1': False,
                 'enable_infra2': False,
+                # IMU (D455 has BMI085 — disabled by default, enable for VIO/SLAM)
+                'enable_gyro': False,
+                'enable_accel': False,
                 # Pointcloud
                 'pointcloud.enable': LaunchConfiguration('enable_pointcloud'),
                 'align_depth.enable': LaunchConfiguration('align_depth.enable'),

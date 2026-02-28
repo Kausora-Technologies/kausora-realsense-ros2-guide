@@ -34,7 +34,9 @@ install_ros2_realsense() {
     sudo apt-get install -y \
         "ros-${ROS_DISTRO}-realsense2-camera" \
         "ros-${ROS_DISTRO}-realsense2-description" \
-        "ros-${ROS_DISTRO}-rviz2"
+        "ros-${ROS_DISTRO}-rviz2" \
+        "ros-${ROS_DISTRO}-imu-tools" \
+        "ros-${ROS_DISTRO}-image-view"
 
     log_info "ROS2 RealSense packages installed."
 }

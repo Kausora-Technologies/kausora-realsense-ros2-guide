@@ -1,0 +1,60 @@
+# Kausora Technologies — RealSense ROS2 Docker Compose
+# Usage:
+#   docker compose up                    # Start with defaults
+#   CAMERA_MODEL=d435 docker compose up  # Specify camera model
+#   docker compose up dev                # Start dev container
+
+services:
+  realsense:
+    image: kausora/realsense-ros2:latest
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: kausora_realsense
+    # USB device access for RealSense cameras
+    privileged: true
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    # Network
+    network_mode: host
+    # Environment
+    environment:
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
+      - CAMERA_SERIAL=${CAMERA_SERIAL:-}
+      - CAMERA_MODEL=${CAMERA_MODEL:-d435}
+      - DISPLAY=${DISPLAY:-:0}
+      - QT_X11_NO_MITSHM=1
+    # X11 for visualization (optional)
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    # Launch the specified camera model
+    command: >-
+      bash -c "
+        source /opt/ros/jazzy/setup.bash &&
+        source /opt/kausora_ws/install/setup.bash &&
+        ros2 launch kausora_realsense_ros2 ${CAMERA_MODEL:-d435}.launch.py serial_no:=${CAMERA_SERIAL:-}
+      "
+    restart: unless-stopped
+
+  dev:
+    image: kausora/realsense-ros2:dev
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.dev
+    container_name: kausora_realsense_dev
+    privileged: true
+    devices:
+      - /dev/bus/usb:/dev/bus/usb
+    network_mode: host
+    environment:
+      - ROS_DOMAIN_ID=${ROS_DOMAIN_ID:-0}
+      - CAMERA_SERIAL=${CAMERA_SERIAL:-}
+      - DISPLAY=${DISPLAY:-:0}
+      - QT_X11_NO_MITSHM=1
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - ..:/workspace/src/kausora_realsense_ros2:rw
+    working_dir: /workspace
+    stdin_open: true
+    tty: true
+    command: bash

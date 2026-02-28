@@ -38,7 +38,7 @@
     # Depth processing
     pointcloud.enable: false
     align_depth.enable: false
-    clip_distance: -2.0
+    clip_distance: -1.0     # -1.0 = disable clipping
 
     initial_reset: false
     publish_tf: true

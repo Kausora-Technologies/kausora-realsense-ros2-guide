@@ -6,13 +6,15 @@ Parameter reference for each supported RealSense camera model.
 
 ## Using Config Files
 
-Config files are located in `config/`. Load them in launch files or pass directly:
+Config files are located in `config/`. They are reference files documenting every tunable
+parameter for each camera. Launch files use default parameters inline; pass a config file
+directly to override them:
 
 ```bash
-# Via launch file (configs are pre-wired)
+# Launch with built-in defaults (recommended)
 ros2 launch kausora_realsense_ros2 d435.launch.py
 
-# Pass custom config via ros2 param
+# Override with a custom config file
 ros2 run realsense2_camera realsense2_camera_node \
     --ros-args --params-file config/d435_config.yaml
 ```
@@ -73,7 +75,7 @@ Raw streams: `/camera/d435i/gyro/sample`, `/camera/d435i/accel/sample`
 
 ---
 
-## D455 — Long-range Stereo
+## D455 — Long-range Stereo + IMU
 
 **Use case:** Outdoor/long-range depth, vehicles, warehouses
 
@@ -85,7 +87,11 @@ Raw streams: `/camera/d435i/gyro/sample`, `/camera/d435i/accel/sample`
 | `depth_width` | 1280 | Up to 1280 |
 | `depth_height` | 720 | Up to 720 |
 | `depth_fps` | 30 | Up to 90 |
-| `enable_gyro` | false | Not available |
+| `enable_gyro` | false | Available (BMI085) — enable for VIO/SLAM |
+| `enable_accel` | false | Available (BMI085) — enable for VIO/SLAM |
+| `gyro_fps` | 400.0 | 400 Hz |
+| `accel_fps` | 250.0 | 250 Hz |
+| `unite_imu_method` | `""` | `""`, `copy`, `linear_interpolation` |
 
 **Range:** 0.6m – 6m (optimal), up to 20m (reduced accuracy)
 
@@ -137,7 +143,7 @@ Raw streams: `/camera/d435i/gyro/sample`, `/camera/d435i/accel/sample`
 | `serial_no` | `""` | Camera serial (empty = first found) |
 | `pointcloud.enable` | `false` | Publish PointCloud2 |
 | `align_depth.enable` | `false` | Align depth to color frame |
-| `clip_distance` | `-2.0` | Max depth distance in meters (-1 off) |
+| `clip_distance` | `-1.0` | Max depth distance in meters (-1.0 = disable) |
 | `publish_tf` | `true` | Publish TF transforms |
 | `initial_reset` | `false` | Hardware reset on startup |
 

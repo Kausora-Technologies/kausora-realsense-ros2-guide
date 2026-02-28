@@ -27,14 +27,17 @@
     infra_height: 720
     infra_fps: 30.0
 
-    # IMU — D455 does not have an IMU
+    # IMU — D455 HAS a built-in IMU (BMI085 gyro + accel), disabled by default
     enable_gyro: false
     enable_accel: false
+    gyro_fps: 400.0
+    accel_fps: 250.0
+    unite_imu_method: ""
 
     # Depth processing
     pointcloud.enable: false
     align_depth.enable: false
-    clip_distance: -2.0
+    clip_distance: -1.0     # -1.0 = disable clipping
 
     initial_reset: false
     publish_tf: true

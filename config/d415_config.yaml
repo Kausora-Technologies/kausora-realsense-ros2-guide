@@ -34,7 +34,7 @@
     # Depth processing
     pointcloud.enable: false
     align_depth.enable: false
-    clip_distance: -2.0     # Clip depth beyond this distance in meters (-1 = disable)
+    clip_distance: -1.0     # Clip depth beyond this distance in meters (-1.0 = disable)
 
     # Initial reset
     initial_reset: false

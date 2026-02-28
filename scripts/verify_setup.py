@@ -32,7 +32,7 @@ def check_librealsense() -> bool:
             version_parts = [int(v) for v in version.split(".")]
             min_version = [2, 56, 1]
             if version_parts >= min_version:
-                print(f"  [OK] Version >= 2.56.1 requirement met.")
+                print("  [OK] Version >= 2.56.1 requirement met.")
             else:
                 print(f"  [WARN] Version {version} is below recommended 2.56.1")
         except ValueError:
@@ -51,7 +51,7 @@ def check_librealsense() -> bool:
                 capture_output=True, text=True, timeout=5
             )
             if "ii  librealsense2" in result.stdout:
-                version_line = [l for l in result.stdout.splitlines() if "ii  librealsense2" in l]
+                version_line = [line for line in result.stdout.splitlines() if "ii  librealsense2" in line]
                 if version_line:
                     version = version_line[0].split()[2]
                     print(f"  [OK] librealsense2 system package: {version}")

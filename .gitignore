@@ -1,0 +1,31 @@
+# ROS2 workspace build artefacts
+build/
+install/
+log/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Docker local environment (keep .env.example, ignore .env)
+docker/.env
+
+# Development tooling (Claude Code, Playwright, etc.)
+.claude/
+.playwright-mcp/
+
+# Colcon / CMake
+*.egg-info/

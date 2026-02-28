@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2024 Kausora Technologies
 """
 Kausora Technologies — RealSense + ROS2 Setup Verifier
 

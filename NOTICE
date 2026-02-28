@@ -1,0 +1,29 @@
+Kausora RealSense ROS2 Guide
+Copyright 2024 Kausora Technologies
+
+This product is licensed under the Apache License, Version 2.0.
+See the LICENSE file for the full license text.
+
+---
+
+This product includes or depends on the following third-party software:
+
+ROS2 Jazzy Jalisco
+  License: Apache 2.0
+  https://github.com/ros2/ros2
+
+realsense-ros (realsense2_camera)
+  License: Apache 2.0
+  https://github.com/IntelRealSense/realsense-ros
+
+librealsense2
+  License: Apache 2.0
+  https://github.com/IntelRealSense/librealsense
+
+imu_tools (imu_filter_madgwick)
+  License: BSD 2-Clause
+  https://github.com/CCNYRoboticsLab/imu_tools
+
+RViz2
+  License: BSD 3-Clause
+  https://github.com/ros2/rviz

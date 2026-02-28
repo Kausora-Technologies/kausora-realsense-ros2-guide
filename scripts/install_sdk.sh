@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2024 Kausora Technologies
 # Kausora Technologies — librealsense2 SDK Installer
 # Targets: Ubuntu 24.04 LTS (Noble Numbat) with ROS2 Jazzy
 # librealsense version: >= 2.56.1

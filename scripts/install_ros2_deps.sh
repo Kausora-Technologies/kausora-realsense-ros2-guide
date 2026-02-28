@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2024 Kausora Technologies
 # Kausora Technologies — ROS2 RealSense Dependencies Installer
 # Installs ros-jazzy-realsense2-camera and related packages
 

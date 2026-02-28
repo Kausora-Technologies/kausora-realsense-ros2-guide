@@ -7,6 +7,7 @@
 services:
   realsense:
     image: kausora/realsense-ros2:latest
+    pull_policy: never
     build:
       context: ..
       dockerfile: docker/Dockerfile
@@ -38,6 +39,7 @@ services:
 
   dev:
     image: kausora/realsense-ros2:dev
+    pull_policy: never
     build:
       context: ..
       dockerfile: docker/Dockerfile.dev

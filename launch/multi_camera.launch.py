@@ -10,7 +10,7 @@ def generate_launch_description():
     Topics are published under /<namespace>/<name>/... (e.g. /camera/camera1/color/image_raw).
     Override serial numbers via launch arguments:
         ros2 launch kausora_realsense_ros2 multi_camera.launch.py \\
-            camera1_serial:=111111111 camera2_serial:=222222222
+            camera1_serial:=111111111111 camera2_serial:=222222222222
     """
     return LaunchDescription([
         # Camera 1 arguments

@@ -14,6 +14,8 @@ def generate_launch_description():
         DeclareLaunchArgument('enable_pointcloud', default_value='false'),
         DeclareLaunchArgument('align_depth.enable', default_value='false'),
         DeclareLaunchArgument('unite_imu_method', default_value='linear_interpolation'),
+        DeclareLaunchArgument('initial_reset', default_value='false',
+                              description='Hardware reset on node startup (use to recover from USB errors)'),
         DeclareLaunchArgument(
             'launch_rviz', default_value='false',
             description='Launch RViz2 with pre-configured display layout'),
@@ -47,6 +49,7 @@ def generate_launch_description():
                 # Pointcloud
                 'pointcloud.enable': LaunchConfiguration('enable_pointcloud'),
                 'align_depth.enable': LaunchConfiguration('align_depth.enable'),
+                'initial_reset': LaunchConfiguration('initial_reset'),
             }],
             output='screen',
             emulate_tty=True,

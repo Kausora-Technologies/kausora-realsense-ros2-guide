@@ -102,7 +102,8 @@ source /opt/ros/jazzy/setup.bash
 rosdep install --from-paths src --ignore-src -r -y
 
 # Build
-colcon build --packages-select kausora_realsense_ros2
+colcon build --packages-select kausora_realsense_ros2 \
+    --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 # Source the workspace
 source install/setup.bash
